@@ -60,8 +60,8 @@ static const int layoutaxis[] = {
 
 static const Layout layouts[] = {
 	/* symbol     arrange function */
-	{ "[]=",      flextile },    /* first entry is default */
-	{ "><>",      NULL },    /* no layout function means floating behavior */
+	{ "[fx]",      flextile },    /* first entry is default */
+	{ "[fl]",      NULL },    /* no layout function means floating behavior */
 };
 
 /* key definitions */
@@ -104,12 +104,13 @@ static Key keys[] = {
 	{ MODKEY,                       XK_y,      incnmaster,     {.i = -1 } },
 
 // Like Emacs
-	{ MODKEY,             XK_k,      killclient,     {0} },
+	{ MODKEY,   	                XK_k,      killclient,     {0} },
 
 	{ MODKEY,                       XK_Return, zoom,           {0} },
 	{ MODKEY,                       XK_Tab,    view,           {0} },
-	{ MODKEY,                       XK_t,      setflexlayout,  {.i = 261} },
-	{ MODKEY,                       XK_f,      setlayout,      {.v = &layouts[1]} },
+	{ MODKEY,                       XK_t,      setflexlayout,  {.i = 261} },  	// default tiling
+	{ MODKEY,	                XK_g,      setflexlayout,  {.i =   7 } }, 	// grid
+	{ MODKEY,                       XK_f,      setlayout,      {.v = &layouts[1]} },// floating
 	{ MODKEY,                       XK_space,  setlayout,      {0} },
 	{ MODKEY|ShiftMask,             XK_space,  togglefloating, {0} },
 	{ MODKEY,                       XK_0,      view,           {.ui = ~0 } },
