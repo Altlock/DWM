@@ -1,3 +1,9 @@
+# This project
+dmenu/dmenu
+slstatus/slstatus
+dwm/dwm
+st/st
+
 # Prerequisites
 *.d
 
