@@ -15,11 +15,11 @@ static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 0;        /* 0 means bottom bar */
 static const char *fonts[]          = { "Fira Code Retina:size=10" };
 static const char dmenufont[]       = "Fira Code Retina:size=10";
-static const char col_gray1[]       = "#222222";
-static const char col_gray2[]       = "#444444";
-static const char col_gray3[]       = "#bbbbbb";
-static const char col_gray4[]       = "#eeeeee";
-static const char col_cyan[]        = "#005577";
+static const char col_gray1[]       = "#292a44";
+static const char col_gray2[]       = "#a0a0c5";
+static const char col_gray3[]       = "#6dfedf";
+static const char col_gray4[]       = "#ae81ff";
+static const char col_cyan[]        = "#663399";
 static const char *colors[][3]      = {
 	/*               fg         bg         border   */
 	[SchemeNorm] = { col_gray3, col_gray1, col_gray2 },
@@ -108,8 +108,8 @@ static Key keys[] = {
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
 
 // Home row keys, moving windows
-	{ MODKEY,                       XK_n,      focusstack,     {.i = +1 } },
-	{ MODKEY,                       XK_e,      focusstack,     {.i = -1 } },
+	{ MODKEY,                       XK_n,      focusstack,     {.i = -1 } },
+	{ MODKEY,                       XK_e,      focusstack,     {.i = +1 } },
 	{ MODKEY,                       XK_i,      setmfact,       {.f = -0.05} },
 	{ MODKEY,                       XK_o,      setmfact,       {.f = +0.05} },
 
