@@ -1,4 +1,5 @@
 /* See LICENSE file for copyright and license details. */
+#include <X11/XF86keysym.h>
 
 /* appearance */
 static const unsigned int borderpx  = 1;        /* border pixel of windows */
@@ -81,6 +82,18 @@ static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont,
 static const char *termcmd[]  = { "st", NULL };
 static const char *browsercmd[] = {"firefox", NULL};
 
+static const char *mutecmd[] = { "amixer", "-q", "set", "Master", "toggle", NULL };
+static const char *volupcmd[] = { "amixer", "-q", "set", "Master", "5%+", "unmute", NULL };
+static const char *voldowncmd[] = { "amixer", "-q", "set", "Master", "5%-", "unmute", NULL };
+static const char *miccmd[] = { "amixer", "set", "Capture", "toggle", NULL };
+// Pulse
+//static const char *mutecmd[] = { "pactl", "set-sink-mute", "0", "toggle", NULL };
+//static const char *volupcmd[] = { "pactl", "set-sink-volume", "0", "+5%", NULL };
+//static const char *voldowncmd[] = { "pactl", "set-sink-volume", "0", "-5%", NULL };
+
+static const char *brupcmd[] = { "xbacklight", "-inc", "10", NULL };
+static const char *brdowncmd[] = { "xbacklight", "-dec", "10", NULL };
+
 static Key keys[] = {
 	/* modifier                     key        function        argument */
 
@@ -153,7 +166,11 @@ static Key keys[] = {
         { MODKEY|ShiftMask,             XK_l,      setcfact,       {.f = -0.25} },
         { MODKEY|ShiftMask,             XK_o,      setcfact,       {.f =  0.00} },
 
-
+	{ 0, XF86XK_AudioMute, spawn, {.v = mutecmd } },
+	{ 0, XF86XK_AudioLowerVolume, spawn, {.v = voldowncmd } },
+	{ 0, XF86XK_AudioRaiseVolume, spawn, {.v = volupcmd } },
+	{ 0, XF86XK_MonBrightnessUp, spawn, {.v = brupcmd} },
+	{ 0, XF86XK_MonBrightnessDown, spawn, {.v = brdowncmd} },
 
 };
 
